@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="content">
+      <h1>Upload your files to the AWS S3 Bucket</h1>
+      <div>
+        <h3>Upload your file here:</h3>
+        <form method="POST" action="/upload" enctype=multipart/form-data>
+          <input type=file name=file>
+          <input type=submit value=Upload>
+        </form>
+      </div>
+      <div>
+        <h3>The path names of the uploaded files:</h3>
+        <ul>
+          {% for item in contents %}
+            <li>
+              <a href="/{{ item.Key }}"> {{ item.Key }} </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

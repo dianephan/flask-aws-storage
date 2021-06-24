@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>show images</title>
+  </head>
+  <body>
+    <div class="content">
+        <div>
+          <h3>Here are the public URLs for the files in the S3 bucket:</h3>
+          <ul>
+            {% for item in contents %}
+              <li>
+                <p>{{ item }}</p>
+                <a href="/{{ item.Key }}"> {{ item.Key }} </a>
+                <img src={{ item }} style="width: 250px">
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+  </body>
+</html>
