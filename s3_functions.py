@@ -19,7 +19,7 @@ def list_files(bucket):
 
 def show_image(bucket):
     s3_client = boto3.client('s3')
-    location = boto3.client('s3').get_bucket_location(Bucket=bucket)['LocationConstraint']
+    # location = boto3.client('s3').get_bucket_location(Bucket=bucket)['LocationConstraint']
     public_urls = []
     try:
         for item in s3_client.list_objects(Bucket=bucket)['Contents']:

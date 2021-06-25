@@ -22,7 +22,7 @@ def upload():
         f = request.files['file']
         f.save(os.path.join(UPLOAD_FOLDER, f.filename))
         upload_file(f"uploads/{f.filename}", BUCKET)
-        return redirect("/index")
+        return redirect("/")
 
 if __name__ == '__main__':
     app.run(debug=True)
