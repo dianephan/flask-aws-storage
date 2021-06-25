@@ -12,16 +12,6 @@
           <input type=submit value=Upload>
         </form>
       </div>
-      <div>
-        <h3>The path names of the uploaded files:</h3>
-        <ul>
-          {% for item in contents %}
-            <li>
-              <a href="/{{ item.Key }}"> {{ item.Key }} </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
     </div>
   </body>
 </html>
