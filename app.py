@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, send_file
 from s3_functions import list_files, upload_file, show_image
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
@@ -20,7 +21,7 @@ def list():
 def upload():
     if request.method == "POST":
         f = request.files['file']
-        f.save(os.path.join(UPLOAD_FOLDER, f.filename))
+        f.save(os.path.join(UPLOAD_FOLDER, secure_filename(f.filename)))
         upload_file(f"uploads/{f.filename}", BUCKET)
         return redirect("/")
 
